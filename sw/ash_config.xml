@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config>
+    <sensors>   
+        <sensor>
+            <name>ublox_zed_f9r</name>
+            <device>/dev/ttyACM0</device>
+        </sensor>
+        <sensor>
+            <name>dummy_gnss</name>
+            <device>/dev/ttyACM0</device>
+            <dummy_param>YO</dummy_param>
+        </sensor>
+    </sensors>
+    <services>
+        <service>
+            <name>navigation_service</name>
+        </service>
+        <service>
+            <name>event_sender_service</name>
+        </service>
+    </services>
+</config>
