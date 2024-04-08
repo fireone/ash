@@ -1,5 +1,5 @@
 # ash
-ash (namned after the droid in Alien) is a autonomous lawn mower project.
+ash (namned after the droid in Alien) is an autonomous lawn mower project.
 
 ![Ash himself](https://static.wikia.nocookie.net/alienanthology/images/6/62/Alien_Ian_Holm1.jpg/revision/latest?cb=20210323150713)
 
