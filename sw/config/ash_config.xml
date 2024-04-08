@@ -4,6 +4,7 @@
         <sensor>
             <name>ublox_zed_f9r</name>
             <device>/dev/ttyACM0</device>
+            <context>ublox_zed_f9r_reader</context>
         </sensor>
         <sensor>
             <name>dummy_gnss</name>
