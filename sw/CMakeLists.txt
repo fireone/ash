@@ -12,7 +12,7 @@ include( FetchContent )
 FetchContent_Declare(
     PugiXML
     GIT_REPOSITORY https://github.com/zeux/pugixml.git
-    GIT_TAG v1.13
+    GIT_TAG v1.14
 )
 
 FetchContent_MakeAvailable( PugiXML ) 
