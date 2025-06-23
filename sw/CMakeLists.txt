@@ -19,6 +19,15 @@ FetchContent_MakeAvailable( PugiXML )
 
 ################
 
+
+#if(BUILD_FOR_DESKTOP)
+#    target_compile_definitions(main PRIVATE DESKTOP_RUNTIME)
+#elseif(BUILD_FOR_NATIVE)
+#    target_compile_definitions(main PRIVATE NATIVE_RUNTIME)
+#endif()
+
+
+
 add_subdirectory( builder )
 add_subdirectory( utils )
 add_subdirectory( context )
@@ -27,4 +36,8 @@ add_subdirectory( command )
 add_subdirectory( sensors )
 add_subdirectory( services )
 add_subdirectory( ash )
+if(BUILD_FOR_DESKTOP)
+    add_subdirectory( simulator )
+endif()
 add_subdirectory( main )
+

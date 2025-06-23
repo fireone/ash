@@ -1,6 +1,10 @@
 #include <iostream>
 #include <memory>
 
+#ifdef DESKTOP_RUNTIME
+#include "simulator/simulator.h"
+#endif
+
 #include "builder/ash_builder.h"
 #include <cstdio>
 
@@ -14,6 +18,11 @@ int main( int argc, char* argv[] )
 
     app->start();
 
+#ifdef DESKTOP_RUNTIME
+    simulator sim;
+    sim.start();
+#endif
+    
     do
     {
         std::cout << '\n' << "Press enter key to quit..." << std::endl;
@@ -22,4 +31,8 @@ int main( int argc, char* argv[] )
 
     app->stop();
 
+#ifdef DESKTOP_RUNTIME
+    sim.stop();
+
+#endif
 }
