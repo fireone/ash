@@ -8,6 +8,7 @@ add_library( ${PROJECT_NAME} STATIC ${SRC_LIST}
    services/command_service/command_service_builder.cpp
    services/event_sender_service/event_sender_service_builder.cpp
    services/navigation_service/navigation_service_builder.cpp
+   services/route_service/route_service_builder.cpp
 )
 
 target_include_directories( ${PROJECT_NAME} PUBLIC 

@@ -8,6 +8,8 @@ add_library( ${PROJECT_NAME} STATIC ${SRC_LIST}
     event_service/event_service.cpp
     navigation_service/navigation_service.cpp
     navigation_service/navigation_events.cpp
+    route_service/route_service.cpp
+    route_service/route_events.cpp
     timer_service/timer_service.cpp
 )
 

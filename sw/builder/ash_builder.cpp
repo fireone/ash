@@ -12,6 +12,7 @@
 #include "services/command_service/command_service_builder.h"
 #include "services/event_sender_service/event_sender_service_builder.h"
 #include "services/navigation_service/navigation_service_builder.h"
+#include "services/route_service/route_service_builder.h"
 
 #include <iostream>
 
@@ -74,10 +75,14 @@ void ash_builder::create_service_builders()
 
     services::i_service_builder* p_navigation_service_builder = 
         new services::navigation_service::navigation_service_builder( mp_event_service );
-    
+
+    services::i_service_builder* p_route_service_builder =
+        new services::route_service::route_service_builder( mp_event_service );
+
     m_service_builders[ p_command_service_builder->get_service_name() ] = p_command_service_builder;
     m_service_builders[ p_event_sender_service_builder->get_service_name() ] = p_event_sender_service_builder;
     m_service_builders[ p_navigation_service_builder->get_service_name() ] = p_navigation_service_builder;
+    m_service_builders[ p_route_service_builder->get_service_name() ] = p_route_service_builder;
 }
 
 void ash_builder::build_config( const char* path )
