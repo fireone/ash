@@ -12,3 +12,6 @@ The ZED-F9R and ZED-F9P will communicate with eachother using two XBEE devices c
 
 ## Wireless charging
 ash will use wireless charging. No more cumbersome docking.
+
+## New scope: Let's Simulate!
+A strategic decision has been made, in order to develop coverage planning and more ash will include a simulator. 
