@@ -19,15 +19,6 @@ FetchContent_MakeAvailable( PugiXML )
 
 ################
 
-
-#if(BUILD_FOR_DESKTOP)
-#    target_compile_definitions(main PRIVATE DESKTOP_RUNTIME)
-#elseif(BUILD_FOR_NATIVE)
-#    target_compile_definitions(main PRIVATE NATIVE_RUNTIME)
-#endif()
-
-
-
 add_subdirectory( builder )
 add_subdirectory( utils )
 add_subdirectory( context )

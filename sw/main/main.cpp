@@ -23,16 +23,13 @@ int main( int argc, char* argv[] )
     sim.start();
 #endif
     
-    do
-    {
-        std::cout << '\n' << "Press enter key to quit..." << std::endl;
-    }
-    while( std::cin.get() != '\n' );
+    std::cout << '\n' << "Press any key to quit..." << std::endl;
+    std::cin.get();// != '\n' );
 
     app->stop();
 
 #ifdef DESKTOP_RUNTIME
     sim.stop();
-
 #endif
+
 }
