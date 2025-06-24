@@ -2,7 +2,7 @@
 #include <memory>
 
 #ifdef DESKTOP_RUNTIME
-#include "simulator/simulator.h"
+#include <QApplication>
 #endif
 
 #include "builder/ash_builder.h"
@@ -11,6 +11,10 @@
 int main( int argc, char* argv[] )
 {
     std::ios::sync_with_stdio( false );
+
+#ifdef DESKTOP_RUNTIME
+    QApplication qt_app( argc, argv );
+#endif
     
     builder::ash_builder app_builder( argc, argv );
     
@@ -19,17 +23,11 @@ int main( int argc, char* argv[] )
     app->start();
 
 #ifdef DESKTOP_RUNTIME
-    simulator sim;
-    sim.start();
-#endif
-    
+    qt_app.exec();
+#else
     std::cout << '\n' << "Press any key to quit..." << std::endl;
     std::cin.get();// != '\n' );
-
-    app->stop();
-
-#ifdef DESKTOP_RUNTIME
-    sim.stop();
 #endif
 
+    app->stop();
 }

@@ -1,6 +1,6 @@
 project( builder )
 
-add_library( ${PROJECT_NAME} STATIC ${SRC_LIST}
+set(SRC_LIST
    ash_builder.cpp
    ash_arg_handler.cpp
    sensors/gnss/dummy_gnss_builder.cpp
@@ -10,6 +10,13 @@ add_library( ${PROJECT_NAME} STATIC ${SRC_LIST}
    services/navigation_service/navigation_service_builder.cpp
    services/route_service/route_service_builder.cpp
 )
+
+if(BUILD_FOR_DESKTOP)
+    list(APPEND SRC_LIST services/simulator_service/simulator_service_builder.cpp )
+endif()
+
+
+add_library( ${PROJECT_NAME} STATIC ${SRC_LIST} )
 
 target_include_directories( ${PROJECT_NAME} PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/..
