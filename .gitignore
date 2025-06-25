@@ -33,3 +33,5 @@
 
 # VS code build
 sw/build/*
+sw/.cache/*
+sw/.vscode/*
