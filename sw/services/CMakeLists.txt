@@ -22,6 +22,8 @@ if(BUILD_FOR_DESKTOP)
     list(APPEND SRC_LIST
         simulator_service/simulator_events.h simulator_service/simulator_events.cpp
         simulator_service/simulator_service.h simulator_service/simulator_service.cpp
+        simulator_service/environment/i_environment.h
+        simulator_service/environment/environment.h simulator_service/environment/environment.cpp
         simulator_service/gui/MainWindow.h simulator_service/gui/MainWindow.cpp
         simulator_service/gui/GridMapView.h simulator_service/gui/GridMapView.cpp
         simulator_service/gui/SimView.h simulator_service/gui/SimView.cpp
