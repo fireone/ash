@@ -5,6 +5,8 @@
 
 #include "utils/map.h"
 
+#include "services/route_service/route_events.h"
+
 #include <iostream>
 
 
@@ -102,6 +104,10 @@ simulator_service::simulator_service( event_service::i_event_service* p_event_se
     m_main_window_ptr = std::make_unique<MainWindow>( m_map_ptr.get(), m_robot_ptr.get() );
     
     m_main_window_ptr->show();
+
+    mp_event_service->add_event_handler( this );
+
+    mp_event_service->dispatch( event::sp_event( new ::services::route_service::ev_request_grid_route() ) );
 }
 
 simulator_service::~simulator_service()
@@ -110,12 +116,16 @@ simulator_service::~simulator_service()
 
 void simulator_service::update()
 {
-
 }
 
 const std::string& simulator_service::get_name() const
 {
     return m_name;
+}
+
+void simulator_service::on_event( const ::services::route_service::ev_grid_route& event )
+{
+
 }
 
 }

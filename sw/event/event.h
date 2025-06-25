@@ -8,8 +8,8 @@ template<class T>
 class event : public i_event
 {
 public:
-   
-   const utils::uuid uuid() const
+
+   utils::uuid uuid() const override 
    {
       return m_uuid;
    }

@@ -2,6 +2,9 @@
 
 #include "services/i_service.h"
 #include "services/event_service/i_event_service.h"
+#include "services/event_service/event_handler.h"
+#include "services/route_service/route_events.h"
+
 
 #include "robot/i_robot.h"
 
@@ -17,7 +20,7 @@ namespace services
 namespace simulator_service
 {
 
-class simulator_service : public i_service
+class simulator_service : public i_service, services::event_service::event_handler< ::services::route_service::ev_grid_route >
 {
 public:
     simulator_service( event_service::i_event_service* p_event_service );
@@ -27,6 +30,8 @@ public:
     void update();
 
     const std::string& get_name() const;
+
+    void on_event( const ::services::route_service::ev_grid_route& event );
 
 private:
     std::string m_name;

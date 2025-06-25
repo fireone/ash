@@ -2,6 +2,8 @@
 
 #include "i_event.h"
 
+#include <iostream>
+
 namespace event {
 
 template<class T>

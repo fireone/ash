@@ -11,12 +11,28 @@ class ev_route : public ::event::event<ev_route>
 {
 public:
 
-    ev_route( );
+    ev_route();
 
     utils::geo_pos get_geo_pos() const;
 
 private:
     utils::geo_pos m_geo_pos;
+};
+
+class ev_request_grid_route : public ::event::event<ev_request_grid_route>
+{
+public:
+
+    ev_request_grid_route();
+
+};
+
+class ev_grid_route : public ::event::event<ev_grid_route>
+{
+public:
+
+    ev_grid_route();
+
 };
 
 }
