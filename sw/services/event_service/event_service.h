@@ -17,9 +17,9 @@ public:
 
     const std::string& get_name() const;
 
-    void add_event_handler( i_event_handler* p_handler );
+    void add_event_handler( ::event::i_event_handler* p_handler );
 
-    void remove_event_handler( i_event_handler* p_handler );
+    void remove_event_handler( ::event::i_event_handler* p_handler );
 
     void dispatch( const ::event::sp_event &sp_ev );
 
@@ -29,7 +29,7 @@ private:
 
     std::string m_name;
 
-    typedef ::std::vector< i_event_handler* > event_handlers;
+    typedef ::std::vector< ::event::i_event_handler* > event_handlers;
     event_handlers m_handlers;
 
     typedef ::std::queue< ::event::sp_event > events;

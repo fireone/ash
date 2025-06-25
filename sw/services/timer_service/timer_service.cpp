@@ -22,12 +22,12 @@ const std::string &timer_service::get_name() const
     return m_name;
 }
 
-void timer_service::add_timer_event_handler( services::event_service::i_event_handler* pHandler )
+void timer_service::add_timer_event_handler( ::event::i_event_handler* pHandler )
 {
     m_handlers.push_back( pHandler );
 }
 
-void timer_service::remove_timer_event_handler( services::event_service::i_event_handler* pHandler )
+void timer_service::remove_timer_event_handler( ::event::i_event_handler* pHandler )
 {
     auto it = std::find( m_handlers.begin(), m_handlers.end(), pHandler );
 

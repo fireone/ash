@@ -4,9 +4,7 @@
 
 #include "event/event.h"
 
-namespace services {
-
-namespace event_service {
+namespace event {
 
 class i_event_handler
 {
@@ -18,7 +16,5 @@ public:
     virtual void dispatch( const ::event::sp_event& ) = 0;
 
 };
-
-}
 
 }

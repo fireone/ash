@@ -18,13 +18,13 @@ public:
 
     const std::string& get_name() const;
     
-    void add_timer_event_handler( services::event_service::i_event_handler* p_handler );
+    void add_timer_event_handler( ::event::i_event_handler* p_handler );
 
-    void remove_timer_event_handler( services::event_service::i_event_handler* p_handler );
+    void remove_timer_event_handler( ::event::i_event_handler* p_handler );
 
-    void schedule_single_event( const event::sp_event& sp_event, unsigned long timer_ms );
+    void schedule_single_event( const ::event::sp_event& sp_event, unsigned long timer_ms );
 
-    void schedule_cyclic_event( const event::sp_event& sp_event, unsigned long timer_ms );
+    void schedule_cyclic_event( const ::event::sp_event& sp_event, unsigned long timer_ms );
 
     void update();
 
@@ -32,7 +32,7 @@ private:
 
     std::string m_name;
 
-    typedef ::std::vector< services::event_service::i_event_handler* > event_handlers;
+    typedef ::std::vector< ::event::i_event_handler* > event_handlers;
     event_handlers m_handlers;
 
     struct timer_event_plan

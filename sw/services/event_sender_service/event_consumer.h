@@ -1,8 +1,10 @@
 #pragma once
 
-#include "services/event_service/event_handler.h"
 #include "services/event_service/event_service.h"
 #include "services/event_sender_service/event_sender_events.h"
+
+#include "event/event_handler.h"
+
 
 #include <iostream>
 
@@ -16,7 +18,7 @@ namespace services::event_sender_service
  *
  */
 
-class event_consumer : public services::event_service::event_handler< ev_a, ev_t1 >
+class event_consumer : public ::event::event_handler< ev_a, ev_t1 >
 {
 
 public:

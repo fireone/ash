@@ -21,14 +21,14 @@ const std::string &event_service::get_name() const
     return m_name;
 }
 
-void event_service::add_event_handler( i_event_handler* p_handler )
+void event_service::add_event_handler( ::event::i_event_handler* p_handler )
 {
     std::lock_guard<std::mutex> guard( event_handler_mutex );
     
     m_handlers.push_back( p_handler );
 }
 
-void event_service::remove_event_handler( i_event_handler* p_handler )
+void event_service::remove_event_handler( ::event::i_event_handler* p_handler )
 {
     std::lock_guard<std::mutex> guard( event_handler_mutex );
     

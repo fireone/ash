@@ -4,7 +4,7 @@
 
 #include "services/i_service.h"
 #include "services/event_service/i_event_service.h"
-#include "services/event_service/event_handler.h"
+#include "event/event_handler.h"
 
 namespace services
 {
@@ -12,7 +12,7 @@ namespace services
 namespace route_service
 {
 
-class route_service : public i_service, services::event_service::event_handler< ev_request_grid_route >
+class route_service : public i_service, ::event::event_handler< ev_request_grid_route >
 {
 public:
     route_service( event_service::i_event_service* p_event_service );

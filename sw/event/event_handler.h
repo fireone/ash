@@ -1,11 +1,9 @@
 #pragma once
 
 #include "i_event_handler.h"
-#include "event/event_manager.h"
+#include "event_manager.h"
 
-namespace services {
-
-namespace event_service {
+namespace event {
 
 template <typename T>
 class t_impl
@@ -15,7 +13,7 @@ public:
 };
 
 template < class... Ts >
-class event_handler : public t_impl<Ts>..., public i_event_handler, private ::event::event_manager<Ts>...
+class event_handler : public t_impl<Ts>..., public i_event_handler, private event_manager<Ts>...
 {
   public:
 
@@ -31,10 +29,10 @@ class event_handler : public t_impl<Ts>..., public i_event_handler, private ::ev
         return m_types;
     }
 
-    void dispatch( const ::event::sp_event& spEv )
+    void dispatch( const sp_event& spEv )
     {
-        ( ( ( ::event::event_manager<Ts>::match( spEv->uuid() ) ) &&
-        ( on_event( *::event::event_manager<Ts>::event_cast( spEv.get() ) ), true )) || ... );
+        ( ( ( event_manager<Ts>::match( spEv->uuid() ) ) &&
+        ( on_event( *event_manager<Ts>::event_cast( spEv.get() ) ), true )) || ... );
     }
 
 private:
@@ -44,4 +42,3 @@ private:
 
 }
 
-}
