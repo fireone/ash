@@ -25,7 +25,12 @@ void route_service::update()
 {
     if( m_do_work )
     {
-        event::sp_event sp_ev( new ev_grid_route() );
+        std::vector<grid_cell> path = {
+            {0, 0}, {1, 0}, {1, 1}, {2, 1}, {2, 2}, {3, 2},
+            {3, 3}, {4, 3}, {4, 4}, {5, 4}, {5, 5}
+        };
+        
+        event::sp_event sp_ev( new ev_grid_route( path ) );
 
         mp_event_service->dispatch( sp_ev );
 

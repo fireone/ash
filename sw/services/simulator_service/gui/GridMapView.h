@@ -2,6 +2,7 @@
 
 #include <QWidget>
 //#include "route/grid_map.h"
+#include "services/route_service/grid/grid_cell.h"
 
 class GridMapView : public QWidget {
     Q_OBJECT
@@ -9,8 +10,9 @@ class GridMapView : public QWidget {
 public:
     GridMapView(QWidget* parent = nullptr);
 
+public slots:
     //void set_grid(const grid_map* grid);
-    //void set_path(const std::vector<grid_cell>& path); // Optional
+    void set_path(const std::vector<grid_cell>& path);
 
 protected:
     void paintEvent(QPaintEvent* event) override;

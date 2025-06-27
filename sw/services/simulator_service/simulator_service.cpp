@@ -101,7 +101,7 @@ simulator_service::simulator_service( event_service::i_event_service* p_event_se
 
     add_map_objects( m_map_ptr.get() );
 
-    m_main_window_ptr = std::make_unique<MainWindow>( m_map_ptr.get(), m_robot_ptr.get() );
+    m_main_window_ptr = std::make_unique<MainWindow>( m_map_ptr.get(), m_robot_ptr.get(), mp_event_service );
     
     m_main_window_ptr->show();
 

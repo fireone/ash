@@ -25,8 +25,14 @@ ev_request_grid_route::ev_request_grid_route()
 {
 }
 
-ev_grid_route::ev_grid_route()
+ev_grid_route::ev_grid_route( const std::vector<grid_cell>& path )
+: m_path( path )
 {
+}
+
+const std::vector<grid_cell> &ev_grid_route::get_path() const
+{
+    return m_path;
 }
 
 }

@@ -1,7 +1,12 @@
 #pragma once
 
 #include "event/event.h"
+
+#include "grid/grid_cell.h"
+
 #include "utils/geo_pos.h"
+
+#include <vector>
 
 namespace services {
 
@@ -31,8 +36,13 @@ class ev_grid_route : public ::event::event<ev_grid_route>
 {
 public:
 
-    ev_grid_route();
+    ev_grid_route( const std::vector<grid_cell>& path );
 
+    const std::vector<grid_cell>& get_path() const;
+
+private:
+
+    std::vector<grid_cell> m_path;
 };
 
 }

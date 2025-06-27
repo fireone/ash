@@ -15,6 +15,12 @@ void GridMapView::set_path(const std::vector<grid_cell>& new_path) {
     update();
 }*/
 
+void GridMapView::set_path(const std::vector<grid_cell>& new_path)
+{
+    qDebug() << "GridMapView::set_path called with path size:" << new_path.size();
+    Q_UNUSED(new_path);
+}
+
 void GridMapView::paintEvent(QPaintEvent*) {
     /*if (!grid) return;
 

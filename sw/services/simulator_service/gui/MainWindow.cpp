@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 #include "GridMapView.h"
 #include "SimView.h"
+#include "SimulatorControl.h"
 /*
 #include "route/grid_map_builder.h"
 #include "route/grid_coverage_planner.h"
@@ -8,11 +9,13 @@
 */
 #include <QDebug>
 #include <QTimer>
+#include <QVBoxLayout>
 #include <QHBoxLayout>
 
-MainWindow::MainWindow( const i_map* map_ptr, const i_robot* robot_ptr, QWidget *parent )
+MainWindow::MainWindow( const i_map* map_ptr, const i_robot* robot_ptr, services::event_service::i_event_service* event_service_ptr, QWidget *parent )
     : m_map_ptr( map_ptr )
     , m_robot_ptr( robot_ptr ) 
+    , m_event_bridge_ptr( nullptr)
     , QMainWindow( parent )
     //, m_sim_ptr( sim_ptr )
     //, m_pMapView( nullptr )
@@ -21,12 +24,13 @@ MainWindow::MainWindow( const i_map* map_ptr, const i_robot* robot_ptr, QWidget 
     QWidget *central_widget_ptr = new QWidget( this );
     this->setCentralWidget( central_widget_ptr );
 
-    QHBoxLayout *layout_ptr = new QHBoxLayout( central_widget_ptr );
+    QVBoxLayout *main_layout_ptr = new QVBoxLayout( central_widget_ptr );
 
     SimView* pMapView = new SimView( m_map_ptr, m_robot_ptr, central_widget_ptr );
-    //GridMapView* pGridMapView = new GridMapView( central_widget_ptr );
+    GridMapView* pGridMapView = new GridMapView( central_widget_ptr );
 
-    layout_ptr->addWidget( pMapView, 1 );
+    main_layout_ptr->addWidget( new SimulatorControl, 1 );
+    main_layout_ptr->addWidget( pMapView, 1 );
     //layout_ptr->addWidget( pGridMapView, 2 );
 
 
@@ -59,6 +63,10 @@ MainWindow::MainWindow( const i_map* map_ptr, const i_robot* robot_ptr, QWidget 
 
     */
     resize( 1920, 1080 );
+
+    m_event_bridge_ptr = std::make_unique<EventBridge>( event_service_ptr );
+
+    connect( m_event_bridge_ptr.get(), &EventBridge::path_generated, pGridMapView, &GridMapView::set_path );
 
     QTimer* update_timer = new QTimer(this);
     connect(update_timer, &QTimer::timeout, this, &MainWindow::update_view);

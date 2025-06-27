@@ -8,9 +8,6 @@ namespace simulator_service
 
 EVENT_IMPLEMENT_LOCAL( ev_sim )
 
-ev_sim::ev_sim( )
-{
-}
 
 }
 
