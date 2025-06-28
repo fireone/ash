@@ -2,7 +2,7 @@
 
 #include "event/event.h"
 
-#include "grid/grid_cell.h"
+#include "utils/grid/grid_cell.h"
 
 #include "utils/geo_pos.h"
 

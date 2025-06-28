@@ -7,6 +7,7 @@ add_library( ${PROJECT_NAME} STATIC
    point_2d.h
    polygon.h polygon.cpp
    uuid.h uuid.cpp
+   grid/grid_cell.h
 )
 
 target_include_directories( ${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/.. )

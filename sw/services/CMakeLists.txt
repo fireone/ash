@@ -19,7 +19,6 @@ set(SRC_LIST
     
     route_service/route_service.h route_service/route_service.cpp
     route_service/route_events.h route_service/route_events.cpp
-    route_service/grid/grid_cell.h
     
     timer_service/timer_service.h timer_service/timer_service.cpp
 )

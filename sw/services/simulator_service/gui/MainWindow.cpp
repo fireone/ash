@@ -26,11 +26,11 @@ MainWindow::MainWindow( const i_map* map_ptr, const i_robot* robot_ptr, services
 
     QVBoxLayout *main_layout_ptr = new QVBoxLayout( central_widget_ptr );
 
-    SimView* pMapView = new SimView( m_map_ptr, m_robot_ptr, central_widget_ptr );
+    SimView* pSimView = new SimView( m_map_ptr, m_robot_ptr, central_widget_ptr );
     GridMapView* pGridMapView = new GridMapView( central_widget_ptr );
 
     main_layout_ptr->addWidget( new SimulatorControl, 1 );
-    main_layout_ptr->addWidget( pMapView, 1 );
+    main_layout_ptr->addWidget( pSimView, 1 );
     //layout_ptr->addWidget( pGridMapView, 2 );
 
 

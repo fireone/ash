@@ -2,7 +2,7 @@
 
 #include <QWidget>
 //#include "route/grid_map.h"
-#include "services/route_service/grid/grid_cell.h"
+#include "utils/grid/grid_cell.h"
 
 class GridMapView : public QWidget {
     Q_OBJECT

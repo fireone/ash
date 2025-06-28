@@ -24,6 +24,8 @@ private:
     std::string m_name;
     
     event_service::i_event_service* mp_event_service;
+
+    
 };
 
 }
