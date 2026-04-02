@@ -13,6 +13,7 @@ set(SRC_LIST
 
 if(BUILD_FOR_DESKTOP)
     list(APPEND SRC_LIST services/simulator_service/simulator_service_builder.cpp )
+    add_definitions( -DDESKTOP_RUNTIME )
 endif()
 
 
